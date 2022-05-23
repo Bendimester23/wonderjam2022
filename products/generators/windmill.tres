@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Product.gd" type="Script" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=2]
+seed = 17
+
+[sub_resource type="NoiseTexture" id=1]
+width = 190
+height = 170
+noise = SubResource( 2 )
+
+[resource]
+script = ExtResource( 1 )
+label = "Windmill"
+icon = SubResource( 1 )
+buy_btn_text = "Cheap"
+category = 1
+multiplier = 1.0
+price = 20.0

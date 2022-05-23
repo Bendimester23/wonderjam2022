@@ -1,0 +1,144 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+flip_faces = true
+size = Vector3( 10, 10, 10 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 1, 1, 1 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="TMP fit in this" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Cloud" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56742, 0, -3.33495 )
+
+[node name="Cloud1" type="MeshInstance" parent="Cloud"]
+transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud2" type="MeshInstance" parent="Cloud"]
+transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud3" type="MeshInstance" parent="Cloud"]
+transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.17199, 0.523234, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66091, 1.86288, -3.33495 )
+
+[node name="Cloud1" type="MeshInstance" parent="Cloud2"]
+transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud2" type="MeshInstance" parent="Cloud2"]
+transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud3" type="MeshInstance" parent="Cloud2"]
+transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.17199, 0.523234, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud3" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66091, -1.25814, -0.945512 )
+
+[node name="Cloud1" type="MeshInstance" parent="Cloud3"]
+transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud2" type="MeshInstance" parent="Cloud3"]
+transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud3" type="MeshInstance" parent="Cloud3"]
+transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.17199, 0.523234, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud4" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53503, -1.25814, 2.97386 )
+
+[node name="Cloud1" type="MeshInstance" parent="Cloud4"]
+transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud2" type="MeshInstance" parent="Cloud4"]
+transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud3" type="MeshInstance" parent="Cloud4"]
+transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.17199, 0.523234, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud5" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53503, 2.79082, 2.97386 )
+
+[node name="Cloud1" type="MeshInstance" parent="Cloud5"]
+transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud2" type="MeshInstance" parent="Cloud5"]
+transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud3" type="MeshInstance" parent="Cloud5"]
+transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.17199, 0.523234, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud6" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24739, 1.66299, 2.97386 )
+
+[node name="Cloud1" type="MeshInstance" parent="Cloud6"]
+transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud2" type="MeshInstance" parent="Cloud6"]
+transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Cloud3" type="MeshInstance" parent="Cloud6"]
+transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.17199, 0.523234, 0, -0.0387805 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null

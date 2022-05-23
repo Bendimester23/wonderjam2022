@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/RoomInfo.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+type = 1
+locked = false
+oil_value = 0.0
+water_value = 0.0
+wind_value = 0.0
+sun_value = 0.0
+coal_value = 0.0
+iron_value = 0.0
+gem_value = 0.0

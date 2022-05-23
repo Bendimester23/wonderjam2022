@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/GroundRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/CameraController.gd" type="Script" id=2]
+[ext_resource path="res://scenes/SkyRoom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=5]
+
+[node name="Prototype" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 5, 9 )
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="Camera"]
+
+[node name="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0 )
+visible = false
+
+[node name="Spatial2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0 )
+visible = false
+
+[node name="Ground" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[connection signal="floor_change" from="Camera" to="HUD" method="set_current_level"]
