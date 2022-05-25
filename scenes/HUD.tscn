@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://products/miners/basic_miner.tres" type="Resource" id=9]
 [ext_resource path="res://scripts/BuildMenu.gd" type="Script" id=10]
 [ext_resource path="res://products/generators/windmill.tres" type="Resource" id=11]
+[ext_resource path="res://products/generators/solar_panel.tres" type="Resource" id=12]
+[ext_resource path="res://products/generators/wind_turbine.tres" type="Resource" id=13]
+[ext_resource path="res://products/generators/solar_power_plant.tres" type="Resource" id=14]
+[ext_resource path="res://sprites/power2.png" type="Texture" id=15]
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -27,7 +31,7 @@ margin_right = -0.320068
 margin_bottom = -0.240051
 tab_align = 0
 script = ExtResource( 10 )
-products = [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ) ]
+products = [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
 
 [node name="Miners" type="Control" parent="BuildMenu"]
 anchor_right = 1.0
@@ -72,11 +76,20 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BuildMenu/Storage"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 scroll_vertical_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BuildMenu/Storage/ScrollContainer"]
+
+[node name="Label" type="Label" parent="BuildMenu/Storage"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Coming soon..."
+align = 1
+valign = 1
 
 [node name="Pumps" type="Control" parent="BuildMenu"]
 visible = false
@@ -213,39 +226,41 @@ anchor_bottom = 1.0
 margin_top = -0.320007
 color = Color( 0.121569, 0.121569, 0.121569, 1 )
 
-[node name="LabelInBox" parent="BottomBar" instance=ExtResource( 3 )]
+[node name="Money" parent="BottomBar" instance=ExtResource( 3 )]
 anchor_left = 0.007
 anchor_top = 0.13
-anchor_right = 0.081
+anchor_right = 0.119
 anchor_bottom = 0.87
 margin_left = -0.440001
-margin_top = -0.0100012
-margin_right = 216.48
+margin_top = -0.0100031
+margin_right = 143.52
 margin_bottom = 35.01
 rect_scale = Vector2( 0.6, 0.6 )
 icon = ExtResource( 4 )
 text = "69420$"
 
-[node name="Button" type="Button" parent="BottomBar"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -694.0
-margin_top = -24.5
-margin_right = -461.0
-margin_bottom = 24.5
-text = "random room"
+[node name="PowerUsage" parent="BottomBar" instance=ExtResource( 3 )]
+anchor_left = 0.132
+anchor_top = 0.13
+anchor_right = 0.244
+anchor_bottom = 0.87
+margin_left = 0.559998
+margin_top = -0.0100012
+margin_right = 144.52
+margin_bottom = 35.01
+rect_scale = Vector2( 0.6, 0.6 )
+icon = ExtResource( 15 )
+text = "0"
 
 [node name="StatsButton" type="Button" parent="BottomBar"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -427.0
-margin_top = -24.5
-margin_right = -194.0
-margin_bottom = 24.5
+anchor_left = 0.26
+anchor_top = 0.182
+anchor_right = 0.381
+anchor_bottom = 0.818
+margin_left = -0.200043
+margin_top = -0.0140009
+margin_right = 0.47998
+margin_bottom = 0.0139999
 text = "Stats"
 
 [node name="Level" type="ColorRect" parent="."]
@@ -270,5 +285,4 @@ valign = 1
 
 [connection signal="visibility_changed" from="BuildMenu" to="BuildMenu" method="_on_BuildMenu_visibility_changed"]
 [connection signal="pressed" from="BuildButton/Button" to="." method="_on_Build_pressed"]
-[connection signal="pressed" from="BottomBar/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BottomBar/StatsButton" to="." method="_on_StatsButton_pressed"]

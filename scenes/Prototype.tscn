@@ -1,29 +1,29 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/GroundRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/GameTick.gd" type="Script" id=1]
 [ext_resource path="res://scripts/CameraController.gd" type="Script" id=2]
-[ext_resource path="res://scenes/SkyRoom.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=5]
 
 [node name="Prototype" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 5, 9 )
+transform = Transform( 1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 5, 12 )
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Camera"]
 
-[node name="Spatial" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0 )
-visible = false
-
-[node name="Spatial2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0 )
-visible = false
-
-[node name="Ground" parent="." instance=ExtResource( 1 )]
-visible = false
-
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.522251, -0.560104, 0.643069, -0.0450941, 0.734882, 0.676694, -0.851599, -0.382403, 0.358535, 0, 0, 4.19421 )
+layers = 4
+light_color = Color( 1, 0.992157, 0.890196, 1 )
+light_bake_mode = 2
+light_cull_mask = 4293918724
+shadow_enabled = true
+
+[node name="GameTick" type="Timer" parent="."]
+autostart = true
+script = ExtResource( 1 )
 
 [connection signal="floor_change" from="Camera" to="HUD" method="set_current_level"]

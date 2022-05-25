@@ -57,8 +57,10 @@ margin_right = 192.0
 margin_bottom = 198.0
 texture = SubResource( 2 )
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="BuyButton" type="Button" parent="MarginContainer/HBoxContainer"]
 margin_top = 202.0
 margin_right = 192.0
 margin_bottom = 232.0
 text = "Build"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/BuyButton" to="." method="_on_BuyButton_pressed"]

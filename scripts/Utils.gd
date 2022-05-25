@@ -17,3 +17,10 @@ func instance_node_at_position(node: PackedScene, parent: Spatial, pos: Vector3)
 	var i = instance_node(node, parent) as Spatial
 	i.translation = pos
 	return i
+
+func get_child_by_name(node: Node, name: String) -> Node:
+	for c in node.get_children():
+		if c.name == name:
+			return c
+	
+	return null

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Product.gd" type="Script" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+seed = 90
+
+[sub_resource type="NoiseTexture" id=2]
+width = 190
+height = 170
+noise = SubResource( 1 )
+
+[resource]
+script = ExtResource( 1 )
+label = "Solar Panel"
+icon = SubResource( 2 )
+buy_btn_text = "$99"
+category = 1
+multiplier = 2.0
+price = 99.0
+product_class = "solar"
+tier = 0
+power_usage = -20.0

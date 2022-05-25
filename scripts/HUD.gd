@@ -22,9 +22,6 @@ func set_current_level(num: int) -> void:
 	GlobalValues.current_floor_type = GlobalRoomManager.get_room_info().type
 	level_label.text = str(num)
 
-func _on_Button_pressed():
-	GlobalRoomManager.add_room(len(GlobalRoomManager.rooms))
-
 func _on_StatsButton_pressed():
 	if stats_window_shown:
 		stats_window.hide()
@@ -36,6 +33,16 @@ func _on_StatsButton_pressed():
 	GlobalValues.allow_movement = false
 	stats_window.refresh()
 
+func _ready():
+	GlobalValues.connect("money_changed", self, "_on_money_changed")
+	GlobalValues.connect("power_usage_changed", self, "_on_power_usage_changed")
+	_on_money_changed()
+
+func _on_money_changed():
+	$BottomBar/Money.text = str(GlobalValues.money) + "$"
+
+func _on_power_usage_changed():
+	$BottomBar/PowerUsage.text = str(GlobalValues.power_usage) + "kW/h"
 
 func _on_Build_pressed():
 	if !build_menu_shown:

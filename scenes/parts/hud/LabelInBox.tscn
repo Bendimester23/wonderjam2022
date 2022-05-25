@@ -4,9 +4,9 @@
 [ext_resource path="res://fonts/medium.tres" type="DynamicFont" id=2]
 
 [node name="LabelInBox" type="ColorRect"]
-anchor_right = 0.061
+anchor_right = 0.187
 anchor_bottom = 0.085
-margin_right = 241.88
+margin_right = -0.0400085
 margin_bottom = 0.199997
 color = Color( 0.423529, 0.423529, 0.423529, 1 )
 script = ExtResource( 1 )
@@ -23,35 +23,37 @@ margin_bottom = 0.495995
 color = Color( 0.121569, 0.121569, 0.121569, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="InnerBg"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -259.875
-margin_top = -34.644
-margin_right = -253.958
-margin_bottom = 34.644
+anchor_left = 0.255
+anchor_top = 0.092
+anchor_right = 0.272
+anchor_bottom = 0.908
+margin_left = 0.12999
+margin_top = 0.035995
+margin_right = 0.114006
+margin_bottom = -0.0360031
 color = Color( 0.423529, 0.423529, 0.423529, 1 )
 
 [node name="Icon" type="TextureRect" parent="InnerBg"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 10.875
-margin_top = -32.0
-margin_right = 74.875
-margin_bottom = 32.0
+anchor_left = 0.02
+anchor_top = 0.059
+anchor_right = 0.235
+anchor_bottom = 0.941
+margin_left = 0.0199995
+margin_top = -0.0150037
+margin_right = -0.015007
+margin_bottom = 0.015007
 expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="InnerBg"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -246.75
-margin_top = -33.5
-margin_right = -8.75
-margin_bottom = 34.5
+anchor_left = 0.293
+anchor_top = 0.106
+anchor_right = 0.975
+anchor_bottom = 0.906
+margin_left = -0.00700378
+margin_top = -0.0100031
+margin_right = -0.0249939
+margin_bottom = -0.00999451
 custom_fonts/font = ExtResource( 2 )
 align = 2
 valign = 1
