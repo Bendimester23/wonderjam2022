@@ -5,12 +5,12 @@
 
 [resource]
 script = ExtResource( 1 )
-label = "Advanced Miner"
+label = "Water Extractor"
 icon = ExtResource( 2 )
-buy_btn_text = "$42000"
-category = 0
-multiplier = 3.0
-price = 420.0
-product_class = "miner"
+buy_btn_text = "$69"
+category = 3
+multiplier = 15.0
+price = 69.0
+product_class = "water"
 tier = 1
-power_usage = 500.0
+power_usage = 40.0

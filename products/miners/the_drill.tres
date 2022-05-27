@@ -1,16 +1,16 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://scripts/Product.gd" type="Script" id=1]
-[ext_resource path="res://temp_texture.tres" type="Texture" id=2]
+[ext_resource path="res://sprites/the_drill.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-label = "Advanced Miner"
+label = "The Drill"
 icon = ExtResource( 2 )
-buy_btn_text = "$42000"
+buy_btn_text = "$6969"
 category = 0
-multiplier = 3.0
-price = 420.0
+multiplier = 30.0
+price = 6969.0
 product_class = "miner"
-tier = 1
-power_usage = 500.0
+tier = 2
+power_usage = 300.0

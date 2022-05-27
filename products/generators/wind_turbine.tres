@@ -20,4 +20,4 @@ multiplier = 5.0
 price = 499.0
 product_class = "wind"
 tier = 1
-power_usage = -120.0
+power_usage = -400.0

@@ -5,12 +5,12 @@
 
 [resource]
 script = ExtResource( 1 )
-label = "Advanced Miner"
+label = "Oil Rig"
 icon = ExtResource( 2 )
-buy_btn_text = "$42000"
-category = 0
-multiplier = 3.0
-price = 420.0
-product_class = "miner"
-tier = 1
-power_usage = 500.0
+buy_btn_text = "$69"
+category = 3
+multiplier = 20.0
+price = 69.0
+product_class = "oil"
+tier = 2
+power_usage = 50.0

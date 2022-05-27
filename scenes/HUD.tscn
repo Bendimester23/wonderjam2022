@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
@@ -15,11 +15,42 @@
 [ext_resource path="res://products/generators/wind_turbine.tres" type="Resource" id=13]
 [ext_resource path="res://products/generators/solar_power_plant.tres" type="Resource" id=14]
 [ext_resource path="res://sprites/power2.png" type="Texture" id=15]
+[ext_resource path="res://products/miners/the_drill.tres" type="Resource" id=16]
+[ext_resource path="res://products/generators/oil_generator.tres" type="Resource" id=17]
+[ext_resource path="res://products/pumps/basic_oil_pump.tres" type="Resource" id=18]
+[ext_resource path="res://products/pumps/water_extractor.tres" type="Resource" id=19]
+[ext_resource path="res://products/pumps/basic_water_pump.tres" type="Resource" id=20]
+[ext_resource path="res://products/pumps/oil_rig.tres" type="Resource" id=21]
+[ext_resource path="res://scenes/parts/hud/InventoryEntry.tscn" type="PackedScene" id=22]
+[ext_resource path="res://sprites/water.png" type="Texture" id=23]
+[ext_resource path="res://sprites/oil.png" type="Texture" id=24]
+[ext_resource path="res://sprites/coal.png" type="Texture" id=25]
+[ext_resource path="res://sprites/iron.png" type="Texture" id=26]
+[ext_resource path="res://sprites/gem.png" type="Texture" id=27]
+
+[sub_resource type="InputEventAction" id=1]
+action = "build"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "inventory"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+sell_prices = {
+"coal": 1.0,
+"gems": 40.0,
+"iron": 5.0,
+"oil": 10.0,
+"water": 0.2
+}
 
 [node name="BuildMenu" type="TabContainer" parent="."]
 visible = false
@@ -31,7 +62,7 @@ margin_right = -0.320068
 margin_bottom = -0.240051
 tab_align = 0
 script = ExtResource( 10 )
-products = [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
+products = [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ) ]
 
 [node name="Miners" type="Control" parent="BuildMenu"]
 anchor_right = 1.0
@@ -202,6 +233,124 @@ margin_right = 807.82
 margin_bottom = 306.48
 text = "Gems:"
 
+[node name="InventoryWindow" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.157
+anchor_top = 0.114
+anchor_right = 0.843
+anchor_bottom = 0.829
+margin_left = 0.0599976
+margin_top = -0.12001
+margin_right = -0.0600586
+margin_bottom = -0.320068
+color = Color( 0.121569, 0.121569, 0.121569, 1 )
+
+[node name="Label" type="Label" parent="InventoryWindow"]
+anchor_right = 1.0
+margin_bottom = 97.0
+custom_fonts/font = ExtResource( 1 )
+text = "Inventory"
+align = 1
+valign = 1
+
+[node name="Values" type="Control" parent="InventoryWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Group1" type="Label" parent="InventoryWindow/Values"]
+margin_left = 121.0
+margin_top = 303.0
+margin_right = 480.0
+margin_bottom = 327.0
+text = "Fluids:"
+
+[node name="Water" parent="InventoryWindow/Values" instance=ExtResource( 22 )]
+margin_left = 118.5
+margin_top = 342.0
+margin_right = 488.5
+margin_bottom = 345.888
+icon = ExtResource( 23 )
+item_name = "Water"
+prop_name = "water"
+
+[node name="SellWater" type="Button" parent="InventoryWindow/Values"]
+margin_left = 516.0
+margin_top = 342.0
+margin_right = 594.0
+margin_bottom = 420.0
+text = "Sell"
+
+[node name="Oil" parent="InventoryWindow/Values" instance=ExtResource( 22 )]
+margin_left = 118.5
+margin_top = 440.0
+margin_right = 488.5
+margin_bottom = 443.888
+icon = ExtResource( 24 )
+item_name = "Oil"
+prop_name = "oil"
+
+[node name="SellOil" type="Button" parent="InventoryWindow/Values"]
+margin_left = 516.0
+margin_top = 440.0
+margin_right = 594.0
+margin_bottom = 518.0
+text = "Sell"
+
+[node name="Group2" type="Label" parent="InventoryWindow/Values"]
+margin_left = 776.0
+margin_top = 303.0
+margin_right = 1135.0
+margin_bottom = 327.0
+text = "Ores:"
+
+[node name="Coal" parent="InventoryWindow/Values" instance=ExtResource( 22 )]
+margin_left = 773.5
+margin_top = 342.0
+margin_right = 1143.5
+margin_bottom = 345.888
+icon = ExtResource( 25 )
+item_name = "Coal"
+prop_name = "coal"
+
+[node name="SellCoal" type="Button" parent="InventoryWindow/Values"]
+margin_left = 1170.5
+margin_top = 342.0
+margin_right = 1248.5
+margin_bottom = 420.0
+text = "Sell"
+
+[node name="Iron" parent="InventoryWindow/Values" instance=ExtResource( 22 )]
+margin_left = 773.5
+margin_top = 440.0
+margin_right = 1143.5
+margin_bottom = 443.888
+icon = ExtResource( 26 )
+item_name = "Iron"
+prop_name = "iron"
+
+[node name="SellIron" type="Button" parent="InventoryWindow/Values"]
+margin_left = 1170.5
+margin_top = 440.0
+margin_right = 1248.5
+margin_bottom = 518.0
+text = "Sell"
+
+[node name="Gems" parent="InventoryWindow/Values" instance=ExtResource( 22 )]
+margin_left = 773.5
+margin_top = 536.0
+margin_right = 1143.5
+margin_bottom = 539.888
+icon = ExtResource( 27 )
+item_name = "Gems"
+prop_name = "gems"
+
+[node name="SellGems" type="Button" parent="InventoryWindow/Values"]
+margin_left = 1170.5
+margin_top = 536.0
+margin_right = 1248.5
+margin_bottom = 614.0
+text = "Sell"
+
 [node name="BuildButton" type="ColorRect" parent="."]
 anchor_left = 0.922
 anchor_top = 0.713
@@ -217,6 +366,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 7 )
 shortcut_in_tooltip = false
+shortcut = SubResource( 2 )
 text = "Build"
 
 [node name="BottomBar" type="ColorRect" parent="."]
@@ -263,6 +413,18 @@ margin_right = 0.47998
 margin_bottom = 0.0139999
 text = "Stats"
 
+[node name="InventoryButton" type="Button" parent="BottomBar"]
+anchor_left = 0.26
+anchor_top = 0.182
+anchor_right = 0.381
+anchor_bottom = 0.818
+margin_left = 258.8
+margin_top = -0.0139999
+margin_right = 259.48
+margin_bottom = 0.0139999
+shortcut = SubResource( 4 )
+text = "Inventory"
+
 [node name="Level" type="ColorRect" parent="."]
 anchor_left = 0.881
 anchor_top = 0.852
@@ -284,5 +446,11 @@ align = 1
 valign = 1
 
 [connection signal="visibility_changed" from="BuildMenu" to="BuildMenu" method="_on_BuildMenu_visibility_changed"]
+[connection signal="pressed" from="InventoryWindow/Values/SellWater" to="." method="_on_Sell_pressed" binds= [ "water" ]]
+[connection signal="pressed" from="InventoryWindow/Values/SellOil" to="." method="_on_Sell_pressed" binds= [ "oil" ]]
+[connection signal="pressed" from="InventoryWindow/Values/SellCoal" to="." method="_on_Sell_pressed" binds= [ "coal" ]]
+[connection signal="pressed" from="InventoryWindow/Values/SellIron" to="." method="_on_Sell_pressed" binds= [ "iron" ]]
+[connection signal="pressed" from="InventoryWindow/Values/SellGems" to="." method="_on_Sell_pressed" binds= [ "gems" ]]
 [connection signal="pressed" from="BuildButton/Button" to="." method="_on_Build_pressed"]
 [connection signal="pressed" from="BottomBar/StatsButton" to="." method="_on_StatsButton_pressed"]
+[connection signal="pressed" from="BottomBar/InventoryButton" to="." method="_on_InventoryButton_pressed"]

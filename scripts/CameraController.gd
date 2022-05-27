@@ -10,8 +10,8 @@ signal floor_change;
 func _ready():
 	target_position = translation
 
-func _process(delta):
-	if tween.is_active() or !GlobalValues.allow_movement:
+func _process(_delta):
+	if !GlobalValues.allow_movement or tween.is_active():
 		return
 	if Input.is_action_just_pressed("down") and current_floor > -99:
 		current_floor -= 1
