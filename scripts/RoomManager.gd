@@ -85,8 +85,17 @@ func generate_random_room(floor_id: float) -> RoomInfo:
 		info.type = RoomInfo.Type.Cave
 	else:
 		info.type = RoomInfo.Type.Air
-		
+	
 	### Calcualting natural resource values
+	
+	if abs(floor_id) != 1:
+		#if floor_id < 0:
+		#	print(floor_id)
+		#	print(abs(floor_id))
+		info.locked = true
+	else:
+		info.locked = false
+		print(floor_id)
 	
 	if floor_id >= 0:
 		# Sun

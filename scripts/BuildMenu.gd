@@ -41,6 +41,9 @@ func can_build_here(p: Product) -> bool:
 	if len(GlobalRoomManager.room_nodes) < 10:
 		return true
 	
+	if GlobalRoomManager.get_room_info().locked:
+		return false
+	
 	return GlobalRoomManager.room_nodes[GlobalRoomManager.current_room].can_spawn_product(p)
 
 func refresh():

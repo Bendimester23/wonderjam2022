@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/SkyRoom.gd" type="Script" id=1]
+[ext_resource path="res://thirdparty/cloud/cloud.glb" type="PackedScene" id=2]
+[ext_resource path="res://thirdparty/cloud/cloud2.glb" type="PackedScene" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 flip_faces = true
@@ -8,9 +10,6 @@ size = Vector3( 10, 10, 10 )
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
-
-[sub_resource type="CubeMesh" id=3]
-size = Vector3( 1, 1, 1 )
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
@@ -21,149 +20,26 @@ layers = 4
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
-[node name="Cloud" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56742, 0, -3.33495 )
-
-[node name="Cloud1" type="MeshInstance" parent="Cloud"]
-transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud2" type="MeshInstance" parent="Cloud"]
-transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud3" type="MeshInstance" parent="Cloud"]
-transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.75198, 0.523234, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud2" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66091, 1.86288, -3.33495 )
-
-[node name="Cloud1" type="MeshInstance" parent="Cloud2"]
-transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud2" type="MeshInstance" parent="Cloud2"]
-transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud3" type="MeshInstance" parent="Cloud2"]
-transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.75198, 0.523234, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud3" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66091, -1.25814, -0.945512 )
-
-[node name="Cloud1" type="MeshInstance" parent="Cloud3"]
-transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud2" type="MeshInstance" parent="Cloud3"]
-transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud3" type="MeshInstance" parent="Cloud3"]
-transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.75198, 0.523234, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud4" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53503, -1.25814, 2.97386 )
-
-[node name="Cloud1" type="MeshInstance" parent="Cloud4"]
-transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud2" type="MeshInstance" parent="Cloud4"]
-transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud3" type="MeshInstance" parent="Cloud4"]
-transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.75198, 0.523234, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud5" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53503, 2.79082, -1.02614 )
-
-[node name="Cloud1" type="MeshInstance" parent="Cloud5"]
-transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud2" type="MeshInstance" parent="Cloud5"]
-transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud3" type="MeshInstance" parent="Cloud5"]
-transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.75198, 0.523234, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud6" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24739, 1.66299, 2.97386 )
-
-[node name="Cloud1" type="MeshInstance" parent="Cloud6"]
-transform = Transform( 3.18065, 0, 0, 0, 1.31398, 0, 0, 0, 1.90161, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud2" type="MeshInstance" parent="Cloud6"]
-transform = Transform( 1.50989, 0, 0, 0, 2.04304, 0, 0, 0, 1.18293, 0.0255499, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="Cloud3" type="MeshInstance" parent="Cloud6"]
-transform = Transform( 1.75474, 0, 0, 0, 1.03726, 0, 0, 0, 2.75198, 0.523234, 0, -0.0387805 )
-layers = 4
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
 [node name="BuildPos" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53806, -0.229998, 2.68142 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3914, -0.464888, 2.87849 )
+
+[node name="cloud" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17088, -3.26909, -2.70721 )
+
+[node name="cloud2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57952, 2.04318, -2.70721 )
+
+[node name="cloud3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0699539, -1.02159, 0.408635 )
+
+[node name="cloud5" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23918, 1.29404, -0.650047 )
+
+[node name="cloud6" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.850113, 0, -0.5266, 0, 1, 0, 0.5266, 0, 0.850113, 2.00816, -4.12745, -2.2919 )
+
+[node name="cloud7" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.831867, 0, 0.554975, 0, 1, 0, -0.554975, 0, 0.831867, 1.62521, -4.12745, 1.75823 )
+
+[node name="cloud4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01764, -1.82424, 2.60505 )

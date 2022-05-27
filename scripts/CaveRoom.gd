@@ -4,12 +4,16 @@ const miner_scene = preload("res://scenes/machines/Miner.tscn")
 
 onready var miner_pos = $MinerPos
 
-export(Resource) var room_info
+export(Resource) var room_info setget refresh
 
 export(Resource) var current_product
 
-func _ready():
-	pass
+func refresh(new):
+	room_info = new
+	if room_info.locked:
+		$LockedIcon.show()
+	else:
+		$LockedIcon.show()
 
 func can_spawn_product(pr: Product) -> bool:
 	if current_product == null:

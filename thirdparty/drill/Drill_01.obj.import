@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Drill_01.obj-b369e6125f245f8901ff2eae0824c057.mesh"
+
+[deps]
+
+files=[ "res://.import/Drill_01.obj-b369e6125f245f8901ff2eae0824c057.mesh" ]
+
+source_file="res://thirdparty/drill/Drill_01.obj"
+dest_files=[ "res://.import/Drill_01.obj-b369e6125f245f8901ff2eae0824c057.mesh", "res://.import/Drill_01.obj-b369e6125f245f8901ff2eae0824c057.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
