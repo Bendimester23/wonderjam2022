@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/RoomManager.gd" type="Script" id=1]
 [ext_resource path="res://rooms/default.tres" type="Resource" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://curves/iron_curve.tres" type="Curve" id=7]
 [ext_resource path="res://curves/coal_curve.tres" type="Curve" id=8]
 [ext_resource path="res://curves/water_curve.tres" type="Curve" id=9]
+[ext_resource path="res://curves/sky_room_price_curve.tres" type="Curve" id=10]
+[ext_resource path="res://curves/cave_room_price_curve.tres" type="Curve" id=11]
 
 [node name="RoomManager" type="Spatial"]
 script = ExtResource( 1 )
@@ -20,3 +22,6 @@ water_value_curve = ExtResource( 9 )
 coal_value_curve = ExtResource( 8 )
 iron_value_curve = ExtResource( 7 )
 gems_value_curve = ExtResource( 6 )
+cave_prices_curve = ExtResource( 11 )
+sky_prices_curve = ExtResource( 10 )
+room_price_multiplier = 300.0

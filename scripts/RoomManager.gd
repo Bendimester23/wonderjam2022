@@ -11,17 +11,23 @@ onready var locked_room = preload("res://scenes/LockedRoom.tscn")
 
 export var room_nodes = {}
 
-export(Curve) var wind_value_curve;
-export(Curve) var sun_value_curve;
+export(Curve) var wind_value_curve
+export(Curve) var sun_value_curve
 
 # Fluids
-export(Curve) var oil_value_curve;
-export(Curve) var water_value_curve;
+export(Curve) var oil_value_curve
+export(Curve) var water_value_curve
 
 # Ores
-export(Curve) var coal_value_curve;
-export(Curve) var iron_value_curve;
-export(Curve) var gems_value_curve;
+export(Curve) var coal_value_curve
+export(Curve) var iron_value_curve
+export(Curve) var gems_value_curve
+
+# Prices
+export(Curve) var cave_prices_curve
+export(Curve) var sky_prices_curve
+
+export(float) var room_price_multiplier = 1.0
 
 export var current_room = 0
 
@@ -33,6 +39,8 @@ func init_rooms() -> void:
 	for i in range(1, 100):
 		add_room(-i)
 		add_sky_room(i)
+	rooms[1].locked = false
+	sky_rooms[0].locked = false
 	refresh_rooms()
 
 func add_sky_room(floor_id) -> void:
@@ -43,8 +51,8 @@ func add_room(floor_id) -> void:
 
 func get_room_info() -> RoomInfo:
 	if current_room > 0:
-		return sky_rooms[current_room]
-	return rooms[current_room]
+		return sky_rooms[current_room-1]
+	return rooms[-current_room]
 
 func refresh_rooms() -> void:
 	for n in get_children():
@@ -66,6 +74,7 @@ func _place_rooms() -> void:
 			instance.name = "Room #" + str(-i)
 			instance.room_info = r
 			room_nodes[-i] = instance
+			instance.refresh(r)
 		i += 1
 	
 	i = 1
@@ -74,6 +83,7 @@ func _place_rooms() -> void:
 		instance.name = "Room #" + str(i)
 		instance.room_info = sky_room
 		room_nodes[i] = instance
+		instance.refresh(sky_room)
 		i += 1
 
 func generate_random_room(floor_id: float) -> RoomInfo:
@@ -89,13 +99,9 @@ func generate_random_room(floor_id: float) -> RoomInfo:
 	### Calcualting natural resource values
 	
 	if abs(floor_id) != 1:
-		#if floor_id < 0:
-		#	print(floor_id)
-		#	print(abs(floor_id))
 		info.locked = true
 	else:
 		info.locked = false
-		print(floor_id)
 	
 	if floor_id >= 0:
 		# Sun
@@ -120,3 +126,20 @@ func generate_random_room(floor_id: float) -> RoomInfo:
 		info.oil_value = oil_value_curve.interpolate_baked(min(floor_id/100, 1.0))
 	
 	return info
+
+func get_current_room_price() -> float:
+	if current_room < 0:
+		return cave_prices_curve.interpolate_baked(abs(current_room)/100) * room_price_multiplier
+	return sky_prices_curve.interpolate_baked(abs(current_room)/100) * room_price_multiplier
+
+func buy_current_room() -> void:
+	var price = get_current_room_price()
+	
+	GlobalValues.money -= price
+	
+	if current_room < 0:
+		rooms[current_room].locked = false
+		room_nodes[current_room].room_info.locked = false
+	else:
+		sky_rooms[current_room-1].locked = false
+		room_nodes[current_room].room_info.locked = false

@@ -1,6 +1,8 @@
 extends Spatial
 
 const miner_scene = preload("res://scenes/machines/Miner.tscn")
+const adv_miner_scene = preload("res://scenes/machines/AdvancedMiner.tscn")
+const the_drill_scene = preload("res://scenes/machines/TheDrill.tscn")
 
 onready var miner_pos = $MinerPos
 
@@ -13,7 +15,7 @@ func refresh(new):
 	if room_info.locked:
 		$LockedIcon.show()
 	else:
-		$LockedIcon.show()
+		$LockedIcon.hide()
 
 func can_spawn_product(pr: Product) -> bool:
 	if current_product == null:
@@ -52,4 +54,9 @@ func spawn_product(product: Product):
 	GlobalValues.power_usage = GlobalValues.power_usage + calc_power()
 	add_resource_rate(1)
 	Utils.delete_children(miner_pos)
-	Utils.instance_node(miner_scene, miner_pos)
+	if product.tier == Product.Tier.Basic:
+		Utils.instance_node(miner_scene, miner_pos)
+	elif product.tier == Product.Tier.Advanced:
+		Utils.instance_node(adv_miner_scene, miner_pos)
+	else:
+		Utils.instance_node(the_drill_scene, miner_pos)

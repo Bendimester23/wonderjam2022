@@ -33,6 +33,12 @@ func is_something_open() -> bool:
 
 func set_current_level(num: int) -> void:
 	GlobalValues.current_floor_type = GlobalRoomManager.get_room_info().type
+	if GlobalRoomManager.get_room_info().locked:
+		$BuildButton/Button.disabled = true
+		$BuildButton/Buy.disabled = false
+	else:
+		$BuildButton/Button.disabled = false
+		$BuildButton/Buy.disabled = true
 	level_label.text = str(num)
 
 func _on_StatsButton_pressed():
@@ -85,3 +91,18 @@ func _on_InventoryButton_pressed():
 		inventory_menu_shown = false
 		GlobalValues.allow_movement = true
 
+func _on_Buy_pressed():
+	if GlobalValues.money >= GlobalRoomManager.get_current_room_price():
+		$BuyConfirm.dialog_text = "Are you sure you want to buy this floor for " + str(round(GlobalRoomManager.get_current_room_price())) + "$?"
+		$BuyConfirm.popup()
+	else:
+		$NeedMoneyPopup/VBoxContainer/Label.text = "You don't have enough money to buy this!\nYou need: " + str(round(GlobalRoomManager.get_current_room_price())) + "$"
+		$NeedMoneyPopup.popup()
+
+func _on_BuyConfirm_confirmed():
+	GlobalRoomManager.buy_current_room()
+	set_current_level(GlobalRoomManager.current_room)
+
+
+func _on_ClosePopup_pressed():
+	$NeedMoneyPopup.hide()

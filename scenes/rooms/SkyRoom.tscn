@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/SkyRoom.gd" type="Script" id=1]
 [ext_resource path="res://thirdparty/cloud/cloud.glb" type="PackedScene" id=2]
 [ext_resource path="res://thirdparty/cloud/cloud2.glb" type="PackedScene" id=3]
+[ext_resource path="res://sprites/Locked_Icon.png" type="Texture" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 flip_faces = true
@@ -10,6 +11,14 @@ size = Vector3( 10, 10, 10 )
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+
+[sub_resource type="QuadMesh" id=3]
+size = Vector2( 10, 10 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 1 )
+albedo_texture = ExtResource( 4 )
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
@@ -43,3 +52,9 @@ transform = Transform( 0.831867, 0, 0.554975, 0, 1, 0, -0.554975, 0, 0.831867, 1
 
 [node name="cloud4" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01764, -1.82424, 2.60505 )
+
+[node name="LockedIcon" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+visible = false
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )

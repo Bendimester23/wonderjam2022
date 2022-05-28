@@ -1,19 +1,19 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://thirdparty/miners/basic_miner.glb" type="PackedScene" id=1]
+[ext_resource path="res://thirdparty/miners/advanced_miner.glb" type="PackedScene" id=1]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.994318 )
 colors = PoolColorArray( 0.207843, 0.207843, 0.207843, 1, 0.207843, 0.207843, 0.207843, 0.47451 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture" id=8]
 gradient = SubResource( 1 )
 width = 30
 
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0.177273 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
+[sub_resource type="CurveTexture" id=9]
 curve = SubResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=5]
@@ -25,12 +25,12 @@ gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1.5
 scale = 2.0
 scale_random = 0.29
-scale_curve = SubResource( 4 )
+scale_curve = SubResource( 9 )
 color = Color( 0.207843, 0.207843, 0.207843, 1 )
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 8 )
 anim_speed = 1.0
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=10]
 flags_transparent = true
 params_billboard_mode = 3
 params_use_alpha_scissor = true
@@ -41,7 +41,7 @@ particles_anim_loop = false
 albedo_color = Color( 0.207843, 0.207843, 0.207843, 1 )
 
 [sub_resource type="SphereMesh" id=7]
-material = SubResource( 6 )
+material = SubResource( 10 )
 radius = 0.3
 height = 0.6
 radial_segments = 8
@@ -49,14 +49,14 @@ rings = 3
 
 [node name="Spatial" type="Spatial"]
 
-[node name="basic_miner" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 0, 1.8, 0 )
-
 [node name="Particles" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.28302, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.61103, 0 )
 amount = 10
 lifetime = 4.0
 fixed_fps = 30
 visibility_aabb = AABB( -3.60682, -0.903398, -2.76439, 6.86696, 5.5065, 5.94969 )
 process_material = SubResource( 5 )
 draw_pass_1 = SubResource( 7 )
+
+[node name="advanced_miner" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.69298, 1.72605, -0.0762515 )

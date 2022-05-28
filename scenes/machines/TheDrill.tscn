@@ -1,12 +1,69 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://thirdparty/drill/Drill_01.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://thirdparty/drill/FF9800.material" type="Material" id=2]
+[ext_resource path="res://thirdparty/drill/1A1A1A.material" type="Material" id=3]
+[ext_resource path="res://thirdparty/drill/455A64.material" type="Material" id=4]
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.994318 )
+colors = PoolColorArray( 0.207843, 0.207843, 0.207843, 1, 0.207843, 0.207843, 0.207843, 0.47451 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 7 )
+width = 30
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0.177273 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.6
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.5
+scale_random = 0.29
+scale_curve = SubResource( 4 )
+color = Color( 0.207843, 0.207843, 0.207843, 1 )
+color_ramp = SubResource( 2 )
+anim_speed = 1.0
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+params_billboard_mode = 3
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.207843, 0.207843, 0.207843, 1 )
+
+[sub_resource type="SphereMesh" id=10]
+material = SubResource( 6 )
+radius = 0.3
+height = 0.6
+radial_segments = 6
+rings = 3
 
 [node name="Spatial" type="Spatial"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 8.073, 7, 0 )
 
 [node name="Drill_01" type="MeshInstance" parent="."]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.00915, 5.62007, 0 )
 mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-material/2 = null
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 3 )
+material/2 = ExtResource( 4 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -7.01223, 8.15365, 0 )
+amount = 10
+lifetime = 4.0
+fixed_fps = 30
+visibility_aabb = AABB( -3.60682, -0.903398, -2.76439, 6.86696, 5.5065, 5.94969 )
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 10 )
