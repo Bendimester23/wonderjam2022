@@ -4,6 +4,11 @@ const miner_scene = preload("res://scenes/machines/Miner.tscn")
 const adv_miner_scene = preload("res://scenes/machines/AdvancedMiner.tscn")
 const the_drill_scene = preload("res://scenes/machines/TheDrill.tscn")
 
+const water_pump = preload("res://scenes/machines/WaterPump.tscn")
+const oil_pump = preload("res://scenes/machines/OilPump.tscn")
+const water_rig = preload("res://scenes/machines/WaterRig.tscn")
+const oil_rig = preload("res://scenes/machines/OilRig.tscn")
+
 onready var miner_pos = $MinerPos
 
 export(Resource) var room_info setget refresh
@@ -54,9 +59,20 @@ func spawn_product(product: Product):
 	GlobalValues.power_usage = GlobalValues.power_usage + calc_power()
 	add_resource_rate(1)
 	Utils.delete_children(miner_pos)
-	if product.tier == Product.Tier.Basic:
-		Utils.instance_node(miner_scene, miner_pos)
-	elif product.tier == Product.Tier.Advanced:
-		Utils.instance_node(adv_miner_scene, miner_pos)
+	if product.product_class == "miner":
+		if product.tier == Product.Tier.Basic:
+			Utils.instance_node(miner_scene, miner_pos)
+		elif product.tier == Product.Tier.Advanced:
+			Utils.instance_node(adv_miner_scene, miner_pos)
+		else:
+			Utils.instance_node(the_drill_scene, miner_pos)
+	elif product.product_class == "water":
+		if product.tier == Product.Tier.Basic:
+			Utils.instance_node(water_pump, miner_pos)
+		else:
+			Utils.instance_node(water_rig, miner_pos)
 	else:
-		Utils.instance_node(the_drill_scene, miner_pos)
+		if product.tier == Product.Tier.Basic:
+			Utils.instance_node(oil_pump, miner_pos)
+		else:
+			Utils.instance_node(oil_rig, miner_pos)
