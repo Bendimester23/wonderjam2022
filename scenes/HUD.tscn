@@ -52,14 +52,18 @@ sell_prices = {
 "water": 0.2
 }
 
+[node name="ClickShield" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
 [node name="BuildMenu" type="TabContainer" parent="."]
 visible = false
-anchor_top = 0.663
+anchor_top = 0.621
 anchor_right = 0.921
 anchor_bottom = 0.928
-margin_top = -7.04004
+margin_top = -15.6801
 margin_right = -0.320068
-margin_bottom = -0.240051
+margin_bottom = -0.23999
 tab_align = 0
 script = ExtResource( 10 )
 products = [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ) ]
@@ -67,16 +71,12 @@ products = [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource(
 [node name="Miners" type="Control" parent="BuildMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 42.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_top = 52.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BuildMenu/Miners"]
-anchor_right = 0.955
-anchor_bottom = 1.05
-margin_right = 0.199951
-margin_bottom = -1.52588e-05
+anchor_right = 0.956
+anchor_bottom = 1.0
+margin_right = -0.560059
 scroll_vertical_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BuildMenu/Miners/ScrollContainer"]
@@ -148,7 +148,7 @@ margin_left = 0.0599976
 margin_top = -0.12001
 margin_right = -0.0600586
 margin_bottom = -0.320068
-color = Color( 0.121569, 0.121569, 0.121569, 1 )
+color = Color( 0.184314, 0.211765, 0.25098, 1 )
 script = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="StatsWindow"]
@@ -179,58 +179,58 @@ text = "Wind:"
 
 [node name="Sun" parent="StatsWindow/Values" instance=ExtResource( 6 )]
 margin_left = 114.5
-margin_top = 250.0
-margin_right = 113.82
-margin_bottom = 250.48
+margin_top = 283.0
+margin_right = 282.057
+margin_bottom = 318.032
 text = "Sun:"
 
 [node name="Group2" type="Label" parent="StatsWindow/Values"]
 margin_left = 121.0
-margin_top = 328.0
+margin_top = 372.0
 margin_right = 480.0
-margin_bottom = 352.0
+margin_bottom = 414.0
 text = "Fluids:"
 
 [node name="Water" parent="StatsWindow/Values" instance=ExtResource( 6 )]
 margin_left = 114.5
-margin_top = 363.0
-margin_right = 113.82
-margin_bottom = 363.48
+margin_top = 407.0
+margin_right = 282.057
+margin_bottom = 442.032
 text = "Water:"
 
 [node name="Oil" parent="StatsWindow/Values" instance=ExtResource( 6 )]
 margin_left = 114.5
-margin_top = 418.0
-margin_right = 113.82
-margin_bottom = 418.48
+margin_top = 495.0
+margin_right = 282.057
+margin_bottom = 530.032
 text = "Oil:"
 
 [node name="Group3" type="Label" parent="StatsWindow/Values"]
-margin_left = 814.5
+margin_left = 725.5
 margin_top = 161.0
-margin_right = 1173.5
-margin_bottom = 185.0
+margin_right = 1084.5
+margin_bottom = 203.0
 text = "Ores:"
 
 [node name="Coal" parent="StatsWindow/Values" instance=ExtResource( 6 )]
-margin_left = 808.5
+margin_left = 719.5
 margin_top = 199.0
-margin_right = 807.82
-margin_bottom = 199.48
+margin_right = 887.057
+margin_bottom = 213.032
 text = "Coal:"
 
 [node name="Iron" parent="StatsWindow/Values" instance=ExtResource( 6 )]
-margin_left = 808.5
-margin_top = 250.0
-margin_right = 807.82
-margin_bottom = 250.48
+margin_left = 719.5
+margin_top = 283.0
+margin_right = 887.057
+margin_bottom = 318.032
 text = "Iron:"
 
 [node name="Gems" parent="StatsWindow/Values" instance=ExtResource( 6 )]
-margin_left = 808.5
-margin_top = 306.0
-margin_right = 807.82
-margin_bottom = 306.48
+margin_left = 719.5
+margin_top = 370.0
+margin_right = 887.057
+margin_bottom = 405.032
 text = "Gems:"
 
 [node name="InventoryWindow" type="ColorRect" parent="."]
@@ -243,7 +243,7 @@ margin_left = 0.0599976
 margin_top = -0.12001
 margin_right = -0.0600586
 margin_bottom = -0.320068
-color = Color( 0.121569, 0.121569, 0.121569, 1 )
+color = Color( 0.184314, 0.211765, 0.25098, 1 )
 
 [node name="Label" type="Label" parent="InventoryWindow"]
 anchor_right = 1.0
@@ -401,7 +401,7 @@ anchor_top = 0.929
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -0.320007
-color = Color( 0.121569, 0.121569, 0.121569, 1 )
+color = Color( 0.117647, 0.137255, 0.160784, 1 )
 
 [node name="Money" parent="BottomBar" instance=ExtResource( 3 )]
 anchor_left = 0.007
@@ -461,7 +461,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.47998
 margin_top = -0.160034
-color = Color( 0.121569, 0.121569, 0.121569, 1 )
+color = Color( 0.117647, 0.137255, 0.160784, 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -504,6 +504,7 @@ margin_right = 537.0
 margin_bottom = 246.0
 text = "Ok"
 
+[connection signal="gui_input" from="ClickShield" to="." method="_on_ClickShield_gui_input"]
 [connection signal="visibility_changed" from="BuildMenu" to="BuildMenu" method="_on_BuildMenu_visibility_changed"]
 [connection signal="pressed" from="InventoryWindow/Values/SellWater" to="." method="_on_Sell_pressed" binds= [ "water" ]]
 [connection signal="pressed" from="InventoryWindow/Values/SellOil" to="." method="_on_Sell_pressed" binds= [ "oil" ]]

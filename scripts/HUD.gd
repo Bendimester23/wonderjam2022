@@ -18,15 +18,18 @@ export var sell_prices = {
 	"oil": 0.0
 }
 
+func close_all():
+	stats_window.hide()
+	build_menu.hide()
+	inventory_menu.hide()
+	stats_window_shown = false
+	build_menu_shown = false
+	inventory_menu_shown = false
+	GlobalValues.allow_movement = true
+
 func _process(_delta):
 	if is_something_open() and Input.is_action_just_pressed("ui_cancel"):
-		stats_window.hide()
-		build_menu.hide()
-		inventory_menu.hide()
-		stats_window_shown = false
-		build_menu_shown = false
-		inventory_menu_shown = false
-		GlobalValues.allow_movement = true
+		close_all()
 
 func is_something_open() -> bool:
 	return stats_window_shown or build_menu_shown or inventory_menu_shown
@@ -80,7 +83,6 @@ func _on_Sell_pressed(type):
 	Inventory.set(type, 0)
 	Inventory.emit_signal("changed")
 
-
 func _on_InventoryButton_pressed():
 	if !is_something_open():
 		inventory_menu.show()
@@ -103,6 +105,9 @@ func _on_BuyConfirm_confirmed():
 	GlobalRoomManager.buy_current_room()
 	set_current_level(GlobalRoomManager.current_room)
 
-
 func _on_ClosePopup_pressed():
 	$NeedMoneyPopup.hide()
+
+func _on_ClickShield_gui_input(event):
+	if event is InputEventMouseButton and is_something_open():
+		close_all()

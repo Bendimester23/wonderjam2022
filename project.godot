@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot_editor_discord_presence/Discord RPC/DiscordRPCEnum.gd"
 }, {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
-}, {
 "base": "Reference",
 "class": "IPC",
 "language": "GDScript",
@@ -107,7 +102,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "DiscordRPC": "",
 "DiscordRPCEnum": "",
-"GitAPI": "",
 "IPC": "",
 "IPCModule": "",
 "IPCPayload": "",
@@ -130,6 +124,9 @@ _global_script_class_icons={
 
 config/name="WonderJam2022"
 run/main_scene="res://scenes/Prototype.tscn"
+boot_splash/image="res://sprites/splash.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0.00784314, 0, 0.00784314, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -159,7 +156,7 @@ enabled=PoolStringArray( "res://addons/godot_editor_discord_presence/plugin.cfg"
 
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [gui]
 

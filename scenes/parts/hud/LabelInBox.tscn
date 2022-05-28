@@ -20,7 +20,7 @@ margin_left = -1.103
 margin_top = 0.504
 margin_right = 1.103
 margin_bottom = 0.495995
-color = Color( 0.121569, 0.121569, 0.121569, 1 )
+color = Color( 0.117647, 0.137255, 0.160784, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="InnerBg"]
 anchor_left = 0.255
