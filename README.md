@@ -13,7 +13,8 @@ My entry to Wonderjam 2022.
 
 ```
 Story:
-You fond your self as a GOD (not backwards dog) in a random rod of Earth, but you lived in a box until now so you can only imagine excavator's and powergenerator's (at least a few).
+You fond your self as a GOD (not backwards dog) in a random rod of Earth,
+but you lived in a box until now so you can only imagine excavator's and powergenerator's (at least a few).
 Everything has a price, but you can sell the stuff you have in your inventory, and the god government pays you for your extra energy.
 ```
 
